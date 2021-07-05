@@ -65,6 +65,7 @@
     self.passwordTextField.secureTextEntry = true;
     
     [self.view addSubview:self.passwordTextField];
+    self.passwordTextField.delegate = self;
     
 }
 
@@ -259,7 +260,8 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.loginTextField) {
         [textField resignFirstResponder];
-        [self.passwordTextField becomeFirstResponder];
+        
+        return true;
     } else {
         [textField resignFirstResponder];
     }
